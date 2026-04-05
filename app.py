@@ -38,33 +38,35 @@ def calculadora():
             break
 
 def joguinho():
-    while True:
+  while True:
+    num = random.randint(1,1000)
+    
+    contador = 10
+    for i in range(contador):
+        try:
+            opcao = int(input("Digite seu palpite: "))
+        except ValueError:
+            print("somente números!")
+            continue
         
-        num_jog = random.randint(1,1000)
+        if opcao > num:
+            print("número menor")
+            print(f"tentativas restantes: {contador}")
+        elif opcao < num:
+            print("número maior")
+            print(f"número de tentativas: {contador}")
+        else:
+            print("ACERTOU!")
+            break
         
-        while True: 
-            try: 
-                opcao_jog = int(input("Vamos ver se você acerta o número: "))
-            except ValueError:  
-                print("digite apenas números!")
-                continue    
-
-            if opcao_jog > num_jog:
-                print("número menor")
-                continue
-            elif opcao_jog < num_jog:
-                print("número maior")
-                continue
-            else:
-                print("ACERTOU!")
-                
-                opcao2 = input("deseja jogar mais uma rodada?") 
-              
-                if opcao2.strip().lower() in ["não","nao"]:
-                    print("Adeus, volte sempre!")
-                    return 
-                else:
-                    break
+        print(f"tentativas restantes: {contador - i - 1}")
+    else:
+        print("Perdeu!")
+    
+    opcao2 = input("jogar novamente? ")
+    if opcao2.strip().lower() in ["não", "nao"]:
+        print("Valeu por jogar!")
+        break
                
 def menu():
     while True:
