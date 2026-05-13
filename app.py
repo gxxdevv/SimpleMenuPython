@@ -5,6 +5,7 @@ def conversor():
         "usd": 5.0,
         "eur": 5.5,
         "gbp": 6.7,
+        "jpy": 0.031,
     }
     while True:
         print("\n=====CONVERSOR=====") 
@@ -14,16 +15,16 @@ def conversor():
             print("só números")
             continue
 
-        moeda = input("Escolha a moeda (USD, EUR, GBP): ").lower().strip()
+        moeda = input("Escolha a moeda (USD, EUR, GBP, JPY): ").lower().strip()
 
         if moeda not in moedas:
             print("Moeda inválida")
             continue
-        
+
         resultado = valor / moedas[moeda]
         print(f"Valor convertido: {resultado:.2f} {moeda.upper()}")
-        
-        pergunta = input("deseja fazer mais alguma comversão? ")
+
+        pergunta = input("deseja fazer mais alguma conversão? ")
         if pergunta.strip().lower() in ["não", "nao"]:
             print("adeus!")
             break
@@ -36,7 +37,7 @@ def calculadora():
         print("/ divisão")
         print("* multiplicação")
         print("** exponenciação")
-        
+
         try:
             num1 = float(input("digite um número: "))
             num2 = float(input("digite outro número: "))
@@ -45,7 +46,7 @@ def calculadora():
             continue
 
         operacao = input("Que tipo de conta deseja fazer? ")
-        
+
         match operacao:
             case "+":
                 res = num1 + num2
@@ -74,11 +75,11 @@ def calculadora():
             case _:
                 print("operação inválida")
                 continue
-        
+
         print(f"o resultado é {res}")
-        
+
         opcao_calc = input("deseja fazer mais contas? ")
-        
+
         if opcao_calc.strip().lower() in ["não", "nao"]:
             print("adeus!")
             break
@@ -94,7 +95,7 @@ def adivinhacao():
             except ValueError:
                 print("Digite apenas números!")
                 continue
-            
+
             if opcao_jog > num_jog: 
                 print("número menor") 
             elif opcao_jog < num_jog: 
@@ -102,9 +103,9 @@ def adivinhacao():
             else: 
                 print("ACERTOU!!") 
                 break 
-            
+
             print(f"tentativas restantes: {9 - i}")
-        
+
         else:
             print("Perdeu!")
 
@@ -167,7 +168,7 @@ def jogos():
         else:
             print("Em Breve...")
             continue
- 
+
 def utilidades():
     while True:
         print("\n=====UTILIDADES=====")
